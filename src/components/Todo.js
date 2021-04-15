@@ -8,6 +8,13 @@ class Todo extends React.Component {
             
         }
     }
+
+    render(h) {
+    
+        return(
+            <div>list</div>
+        )
+    }
 }
 
 export default Todo

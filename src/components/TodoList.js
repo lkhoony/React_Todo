@@ -11,11 +11,17 @@ class TodoList extends React.Component {
     }
 
     render() {
+
         const todos = this.props.todos;
+        console.log(todos);
+        const todosList = todos.map(
+            (todo)=> <Todo key={ todo.id } todo={ todo }/>
+        );
 
         return (
-        
-            
+            <div>
+                { this.todoList } 
+            </div>
         );   
     }
 }

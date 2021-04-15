@@ -5,6 +5,7 @@ import React from 'react'
 import Clock from './components/Clock'
 import Input from './components/Input'
 import CompletedTodo from './components/CompletedTodo'
+import TodoList from './components/TodoList';
 
 class App extends React.Component{
 
@@ -28,6 +29,7 @@ class App extends React.Component{
         <Input />
         <CompletedTodo todos={this.state.todos}/>
         <hr />
+        <TodoList todos={this.state.todos }/>
       </div>    
     );
 

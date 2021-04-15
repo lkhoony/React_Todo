@@ -46,6 +46,12 @@ class Input extends React.Component{
     }
 
     onChangeTodo(e) {
+        // setstate를 불필요하게 작성하면 여러번 렌더링
+        // ## 컴포넌트 생명주기 
+        // >> react 생명주기는 어떤게 있고 어떻게 잔행되는지
+        // react 기본적으로 제공되는 생명주기에 작성할수 있게
+        // ## GNB, LNB (레이아웃을 정할때 알아야 할 것들 )
+        // 하나투어 클론코딩?
         this.setState({
           todoText : e.target.value
         });
