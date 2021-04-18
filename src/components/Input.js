@@ -36,12 +36,15 @@ class Input extends React.Component{
         this.onChangeTodo = this.onChangeTodo.bind(this); 
         // bind 하지 않으면 onChangeTodo에서 this는 undefined
         this.addTodo = this.addTodo.bind(this);
+        // this.componentDidUpdate = this.componentDidUpdate.bind(this);
     }
 
     addTodo(e) {
-        if(e.key==='Enter'){
-            console.log(e);
-            this.state.todoText = '';
+        if(e.key==='Enter' && e.target.value!==''){
+            this.props.addTodo(e.target.value);
+            this.setState({
+                todoText : ''
+            })
         }
     }
 
@@ -57,13 +60,22 @@ class Input extends React.Component{
         });
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot){
+        console.log(prevProps, prevState, snapshot);
+
+        // 무한 루프에 빠지지 않도록 조건문에 작성 권장
+        if(prevState.todoText !== this.state.todoText){
+            console.log(this.state.todoText);
+        }
+    }
+
     render() {
         return (
             <div>
                 <input 
                   className="w-100 p-2"
                   placeholder="Type todo"
-                  value={this.todoText}
+                  value={this.state.todoText}
                   onChange={this.onChangeTodo}
                   onKeyUp={this.addTodo}/>
             </div>

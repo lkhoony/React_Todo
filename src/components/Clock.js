@@ -32,7 +32,11 @@ class Clock extends React.Component {
     render() {
 
         return(
-            <div>
+            <div
+              className="mb-1"
+              style={{
+                color : 'rgba(0,0,0,0.6)'
+              }}>
                 <FormattedDate date = {this.state.date}/>
             </div>
         );

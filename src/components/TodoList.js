@@ -5,22 +5,19 @@ class TodoList extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {
-
-        }
     }
 
     render() {
-
         const todos = this.props.todos;
-        console.log(todos);
         const todosList = todos.map(
-            (todo)=> <Todo key={ todo.id } todo={ todo }/>
+            (todo) => <Todo 
+                        key={ todo.id } todo={ todo } 
+                        toggleCheckbox={this.props.toggleCheckbox} 
+                        deleteTodo={this.props.deleteTodo}/>
         );
-
         return (
             <div>
-                { this.todoList } 
+                { todosList } 
             </div>
         );   
     }
