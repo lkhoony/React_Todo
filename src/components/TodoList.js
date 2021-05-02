@@ -12,7 +12,7 @@ class TodoList extends React.Component {
         const todosList = todos.map(
             (todo) => <Todo 
                         key={ todo.id } todo={ todo } 
-                        toggleCheckbox={this.props.toggleCheckbox} 
+                        toggleTodo={this.props.toggleTodo} 
                         deleteTodo={this.props.deleteTodo}/>
         );
         return (
@@ -22,5 +22,6 @@ class TodoList extends React.Component {
         );   
     }
 }
+
 
 export default TodoList

@@ -7,12 +7,12 @@ class Todo extends React.Component {
         this.state = {
             completedAt : ''
         }
-        this.toggleCheckbox = this.toggleCheckbox.bind(this);
+        this.toggleTodo = this.toggleTodo.bind(this);
         this.deleteTodo = this.deleteTodo.bind(this);
     }
 
-    toggleCheckbox(e) {
-        this.props.toggleCheckbox(this.props.todo.id, e.target.checked)
+    toggleTodo(e) {
+        this.props.toggleTodo(this.props.todo.id, e.target.checked);
         const date = new Date();
         if(e.target.checked){
             this.setState({
@@ -38,7 +38,7 @@ class Todo extends React.Component {
                     className="mr-3"
                     type="checkbox"
                     checked={this.props.todo.checked}
-                    onChange={this.toggleCheckbox}
+                    onChange={this.toggleTodo}
                   />
                 </div>
 
@@ -48,7 +48,7 @@ class Todo extends React.Component {
                     marginLeft : 10,
                     textDecoration : (this.props.todo.checked ? 'line-through' : '')}}
                     className = {"ml-3 flex-grow-1 " + (this.props.todo.checked ? 'text-muted' : '')}
-                >{this.props.todo.text}</span>
+                >{this.props.todo.todoText}</span>
 
                 {/* is completed */}
                 <span
